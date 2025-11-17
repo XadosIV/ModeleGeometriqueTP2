@@ -15,16 +15,11 @@ public class MeshWriter : MonoBehaviour
 
     [SerializeField] private Vector3 gravityCenter;
 
-    void Start()
-    {
-        tfr = GetComponent<TextFileReader>();
-    }
-
     private void OnDrawGizmos()
     {
+        tfr = GetComponent<TextFileReader>();
         if (lastFileDraw == file) return;
         lastFileDraw = file;
-
 
         vertices.Clear();
         triangles.Clear();
@@ -68,6 +63,7 @@ public class MeshWriter : MonoBehaviour
             }
         }
 
+        // Vec3 gravityCenter = somme des vertices
         gravityCenter /= nbVertices;
         for (int i = 0; i < vertices.Count; i++)
         {
